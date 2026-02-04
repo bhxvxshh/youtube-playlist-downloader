@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Downloaded files
+*.mp4
+*.mkv
+*.webm
+*.m4a
+*.mp3
+
+# Playlist folders (downloaded content)
+# Add specific playlist names if needed
+
+# Cookies (sensitive data)
+cookies.txt
+*.cookies
+
+# Download tracking
+downloaded_videos.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
