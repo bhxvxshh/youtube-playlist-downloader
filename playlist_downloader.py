@@ -65,6 +65,7 @@ def get_playlist_info(playlist_url, browser=None, cookies_file=None, use_android
         'extract_flat': False,
         'ignoreerrors': True,
         'verbose': False,
+        'js_runtimes': {'deno': {}, 'node': {}},
     }
     
     if use_android:
@@ -251,6 +252,9 @@ def download_playlist(playlist_url, output_dir=None, browser=None, cookies_file=
             'key': 'FFmpegMetadata',
             'add_metadata': True,
         }],
+
+        # JS runtime for signature decryption (ensures full quality ladder, incl. 1080p+)
+        'js_runtimes': {'deno': {}, 'node': {}},
     }
     
     # Use Android client to bypass age restriction

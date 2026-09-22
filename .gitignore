@@ -32,10 +32,18 @@ build/
 
 # Cookies (sensitive data)
 cookies.txt
+cookies.txt.txt
 *.cookies
 
 # Download tracking
 downloaded_videos.txt
+
+# Downloaded content folders
+downloads/
+
+# Personal playlist / run scripts (contain private URLs, not for distribution)
+alt_playlist*.txt
+run_download.py
 
 # OS files
 .DS_Store

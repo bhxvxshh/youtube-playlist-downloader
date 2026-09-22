@@ -1,10 +1,11 @@
 # YouTube Playlist Downloader
 
-A professional Python script to download entire YouTube playlists in the highest quality available (up to 4K/8K).
+A Python tool to download YouTube videos and playlists in the highest quality available (up to 4K), with both a browser-based UI and a CLI.
 
 ## Features
 
-- ✅ Download entire playlists in highest quality
+- ✅ Simple web UI — paste a link, pick a quality, hit download
+- ✅ Download entire playlists in highest quality (CLI)
 - ✅ Estimated total download size before downloading
 - ✅ Progress bar with speed and ETA
 - ✅ Resume interrupted downloads
@@ -17,7 +18,8 @@ A professional Python script to download entire YouTube playlists in the highest
 ## Requirements
 
 - Python 3.7+
-- ffmpeg (for merging video and audio)
+- [ffmpeg](https://ffmpeg.org/download.html) (for merging video and audio)
+- [Node.js](https://nodejs.org/) (used by yt-dlp to solve YouTube's JS challenges reliably)
 
 ## Installation
 
@@ -62,7 +64,28 @@ brew install ffmpeg
 sudo apt update && sudo apt install ffmpeg
 ```
 
-## Usage
+## Web UI (recommended)
+
+Instead of running a CLI command for every video, start the local web app and use a form.
+
+```bash
+python app.py
+```
+
+Then open **http://127.0.0.1:5000** in your browser, paste a video URL, pick a quality, and click **Download**. Progress, speed, and ETA update live for every job you queue.
+
+### Cookies (needed for large / high-quality downloads)
+
+YouTube throttles or blocks large, high-bitrate downloads for anonymous requests. To download reliably at 1080p+ on longer videos, export your YouTube session cookies:
+
+1. Install the **[Get cookies.txt LOCALLY](https://chromewebstore.google.com/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc)** extension (Chrome) or **[cookies.txt](https://addons.mozilla.org/addon/cookies-txt/)** (Firefox)
+2. Go to youtube.com and make sure you're signed in
+3. Click the extension icon → Export
+4. Save the file as `cookies.txt` in the project root (same folder as `app.py`)
+
+The web UI shows a warning banner if no `cookies.txt` is found. **Never commit or share this file** — it contains your live login session. It's already excluded via `.gitignore`.
+
+## CLI Usage
 
 ### Interactive Mode
 

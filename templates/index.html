@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>YouTube Downloader</h1>
+
+    <div id="cookie-warning" class="banner" hidden>
+      No <code>cookies.txt</code> found. Large / high quality downloads will likely fail with
+      HTTP 403 errors. See the README for how to export one.
+    </div>
+
+    <form id="download-form">
+      <input
+        id="url"
+        type="url"
+        placeholder="Paste a YouTube video URL"
+        required
+      >
+      <select id="quality">
+        <option value="best">Best available</option>
+        <option value="2160">2160p (4K)</option>
+        <option value="1440">1440p</option>
+        <option value="1080">1080p</option>
+        <option value="720">720p</option>
+        <option value="480">480p</option>
+        <option value="audio">Audio only (MP3)</option>
+      </select>
+      <button type="submit">Download</button>
+    </form>
+
+    <p id="form-error" class="error" hidden></p>
+
+    <section id="jobs"></section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
